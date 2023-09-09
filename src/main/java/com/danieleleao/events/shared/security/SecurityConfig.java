@@ -21,6 +21,8 @@ public class SecurityConfig {
                 .antMatchers(HttpMethod.POST, "/customers/").permitAll()
                 .antMatchers(HttpMethod.POST, "/customers/login").permitAll()
                 .antMatchers(HttpMethod.POST, "/organizers/").permitAll()
+                                .antMatchers(HttpMethod.POST, "/events/").permitAll()
+
                 .anyRequest().authenticated()
                 .and().addFilterBefore(new SecurityFilter(), UsernamePasswordAuthenticationFilter.class )
         ;
