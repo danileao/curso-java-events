@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.danieleleao</groupId>
 	<artifactId>events</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>events</name>
 	<description>API de gestão de eventos</description>
 	<properties>

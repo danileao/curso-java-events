@@ -20,4 +20,10 @@ jobs:
                 java-version: '17'
             - name: Build project
               run: mvn clean install -DskipTests
+            - name: Login docker
+              run: docker login -u ${{secrets.DOCKER_USERNAME}} -p ${{secrets.DOCKER_PASSWORD}}
+            - name: Build docker image
+              run: docker build -t danieleleaoe/events-springboot .
+            - name: Publish image to docker hub
+              run: docker push danieleleaoe/events-springboot
             
