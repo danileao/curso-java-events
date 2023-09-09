@@ -26,4 +26,15 @@ jobs:
               run: docker build -t danieleleaoe/events-springboot .
             - name: Publish image to docker hub
               run: docker push danieleleaoe/events-springboot
+
+    deploy: 
+        needs: build
+        runs-on: self-hosted
+        steps:
+          - name: Pull image from docker hub
+            run: docker pull danieleleaoe/events-springboot:latest
+          - name: Remove container
+            run: docker rm -f events-springboot
+          - name: Run docker container
+            run: docker run -d -p 8080:8080 --name events-springboot danieleleaoe/events-springboot
             
