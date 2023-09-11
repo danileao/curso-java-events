@@ -36,5 +36,5 @@ jobs:
           - name: Remove container
             run: docker rm -f events-springboot
           - name: Run docker container
-            run: docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} -e DATABASE_PASSWORD=${{secrets.DATABASE_PASSWORD}} --name events-springboot danieleleaoe/events-springboot
+            run: docker run -d -p 8080:8080 -e DATABASE_URL=${{secrets.DATABASE_URL}} -e DATABASE_USERNAME=${{secrets.DATABASE_USERNAME}} -e DATABASE_PASSWORD='${{secrets.DATABASE_PASSWORD}}' --name events-springboot danieleleaoe/events-springboot
             
